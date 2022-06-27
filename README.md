@@ -18,17 +18,21 @@ Contents:
 3.1) readerConfiguration_reducedEventMC.json - for MC
 
 # Instructions
-Add extrac tables and converters with:
+In order to run over data or MC use the following flags:
+1. **-runData**: run over data
+2. **-runMC**: run over MC
+
+Add extra tables and converters with:
 1. **--add_mc_conv**: conversion from o2mcparticle to o2mcparticle_001
 2. **--add_fdd_conv**: conversion o2fdd from o2fdd_001
 3. **--add_track_prop**: conversion from o2track to o2track_iu ([link](https://aliceo2group.github.io/analysis-framework/docs/helperTasks/trackPropagation.html))
 
 Examples:
-- Run TableMaker on Data
-  ```ruby
-  python runTableMaker.py configTableMakerDataRun3.json -runMData table-maker-m-c:processMuonOnlyWithCov:true --add_track_prop
-  ```
 - Run TableMaker on MC
   ```ruby
-  python runTableMaker.py configTableMakerMCRun3.json -runMData table-maker-m-c:processMuonOnlyWithCov:true --add_track_prop
+  python runTableMaker.py configTableMakerDataRun3.json -runMC table-maker-m-c:processMuonOnlyWithCov:true --add_track_prop
+  ```
+- Run TableMaker on Data
+  ```ruby
+  python runTableMaker.py configTableMakerMCRun3.json -runData table-maker:processMuonOnlyWithCov:true --add_track_prop
   ```
